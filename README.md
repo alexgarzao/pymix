@@ -1,5 +1,17 @@
 # pymix
-PyMix é uma ferramenta que traz as facilidades do Mix (Elixir) para o mundo Python
+PyMix é uma ferramenta que traz as facilidades do Mix (Elixir) para o mundo Python.
+
+## Hello
+
+```shell
+pip install pymix
+pymix get django-rest # aqui le de um repo, por default o repo do pymix
+pymix django-rest new api myapi base_url desciption
+pymix django-rest new method method_name param1 type1 param2 type2
+```
+
+
+## ORGANIZAR
 
 - Mix de Elixir em Python
 - Mix provê suporte para
