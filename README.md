@@ -24,3 +24,7 @@ PyMix é uma ferramenta que traz as facilidades do Mix (Elixir) para o mundo Pyt
         - http://www.phoenixframework.org/docs/mix-tasks#section--mix-phoenix-gen-model-
 
 - seria legal termos um repo no github onde fosse possível definir tasks para libs existentes como django, djangorest, …
+- faz update
+- compila fontes
+- roda testes
+- e da para integrar para gerar coisas como gomix microservice new e gomix microservice.method new
