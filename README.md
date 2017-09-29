@@ -8,11 +8,11 @@ Exemplo: API que retorna informação sobre CEP's. Vai ser utilizado python 2.7,
 ```shell
 pip install pymix
 pymix get api-rest-django-mysql-apiary as api-rest
-pymix api-rest new api CEP http://localhost/ "API para consulta de CEP's"
-pymix api-rest new method cep number string id_estado int id_cidade int id_bairro int
-pymix api-rest new method estado id int id_cidade int id_bairro int sigla string nome string
-pymix api-rest new method cidade id int id_bairro int nome string
-pymix api-rest new method bairro id int nome string
+pymix api-rest new-api CEP http://localhost/ "API para consulta de CEP's"
+pymix api-rest new-method cep number:string id_estado:int id_cidade:int id_bairro:int
+pymix api-rest new-method estado id:int id_cidade:int id_bairro:int sigla:string nome:string
+pymix api-rest new-method cidade id:int id_bairro:int nome:string
+pymix api-rest new-method bairro id:int nome:string
 ```
 
 
