@@ -14,7 +14,7 @@ u'''## Rotas para criar/listar a entidade {{entity_name}} [/{{route}}/]
 ### Cria uma nova entidade {{entity_name}} [POST]
 
 + Request Cria {{entity_name}} (application/json)
-    + Attributes({{entity_name}} response)
+    + Attributes({{entity_name}} request)
 
 + Response 201 (application/json)
     OK
@@ -25,10 +25,10 @@ u'''## Rotas para criar/listar a entidade {{entity_name}} [/{{route}}/]
     + Attributes (erro)
 
 
-## Métodos referentes a uma entidade {{entity_name}} [/{{route}}/{{key_name}}/]
+## Métodos referentes a uma entidade {{entity_name}} [/{{route}}/{{arguments_in_path[0].name}}/]
 
 + Parameters
-  + {{key_name}}: `{{key_sample}}` (required, {{key_type}}) - {{key_description}}.
+  + {{arguments_in_path[0].name}}: `{{arguments_in_path[0].get_sample()}}` (required, {{arguments_in_path[0].type}}) - {{arguments_in_path[0].get_description()}}.
 
 ### Obtém os dados de uma entidade {{entity_name}} [GET]
 
@@ -69,10 +69,12 @@ u'''## Rotas para criar/listar a entidade {{entity_name}} [/{{route}}/]
 
 TPL_OBJECT_DEFINITION = \
 u'''## {{entity_name}} request (object)
-- {{property_name}}: {{property_sample}} ({{property_type}}, required) - {{property_description}}.
+{% for argument in arguments_in_body %}
+- {{argument.name}}: {{argument.get_sample()}} ({{argument.get_type()}}, required) - {{argument.get_description()}}.
+{% endfor %}
 
 ## {{entity_name}} response (object)
-- id_{{key_name}}: {{key_sample}} ({{key_type}}, required) - {{key_description}}.
+- id_{{arguments_in_path[0].name}}: '123' (number, required) - ID do objeto.
 - include {{entity_name}} request
 '''
 
@@ -84,4 +86,8 @@ class ApiAryGen(object):
     def gen(self, parameters):
         template = Template(TPL_ROUTE_DEFINITION)
 
-        print('*** DOC APIARY ***\n\n\n' + template.render(parameters))
+        print('*** DOC APIARY - Metodos ***\n\n\n' + template.render(parameters))
+
+        template = Template(TPL_OBJECT_DEFINITION)
+
+        print('\n\n\n*** DOC APIARY - Objetos ***\n\n\n' + template.render(parameters))

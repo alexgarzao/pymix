@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
 
 class Argument(object):
+    # Types:
     INT = 0
     STRING = 1
-
-    def __init__(self, name=None, type=None):
+    # Location:
+    IN_PATH = 1
+    IN_QUERY = 2
+    IN_BODY = 3
+    def __init__(self, name=None, type=None, location=None):
         self.name = name
         self.type = type
+        self.location = location
 
     def get_name(self):
         return self.name
@@ -20,4 +25,4 @@ class Argument(object):
         return sample_types[self.type]
 
     def get_description(self):
-        return 'Descricao: TODO'
+        return 'Descricao de %s: TODO' % self.name
